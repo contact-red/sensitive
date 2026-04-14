@@ -1,3 +1,20 @@
+"""
+A package to help you manage sensitive data.
+
+A common pattern we see while doing security audits is that programmers will
+unintentionally output sensitive data to logfiles, or other destinations
+where it may not be appropriate to write to. The purpose of this package is
+to provide a mechanism to "tag" sensitive variables in such a way that
+accessing them becomes a deliberate act, and simply calling .string() will
+return "[REDACTED]".
+
+There is an additional helpful constructor which reads a specified
+Environmental Variable into a Sensitive[String], a very common pattern
+when passing sensitive data into applications.
+
+Documentation: [https://sensitive.contact.red/](https://sensitive.contact.red/)
+"""
+
 class val Sensitive[A: Stringable val]
   """
   Wraps a sensitive value so it never appears in logs or string output.
