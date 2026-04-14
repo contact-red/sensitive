@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Fixed
 
+
 ### Added
 
+- Initial Release - Documentation [https://sensitive.contact.red/](https://sensitive.contact.red/)
+
 ### Changed
+
+
