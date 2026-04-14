@@ -44,7 +44,7 @@ sensitive is small and simple. I don't expect breaking changes. You should feel 
 ## Installation
 
 * Install [corral](https://github.com/contact-red/sensitive)
-* `corral add github.com/contact-red/sensitive.git --version 0.1.0`
+* `corral add github.com/contact-red/sensitive.git --version 0.1.1`
 * `corral fetch` to fetch your dependencies
 * `use "sensitive"` to include this package
 * `corral run -- ponyc` to compile your application
