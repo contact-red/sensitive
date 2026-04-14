@@ -1,0 +1,9 @@
+{
+  "info": {
+    "name": "sensitive",
+    "version": "0.1.0",
+    "description": "Generic sensitive value wrapper with redacted string output"
+  },
+  "packages": [],
+  "deps": []
+}
