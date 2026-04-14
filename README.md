@@ -41,12 +41,12 @@ sensitive is small and simple. I don't expect breaking changes. You should feel 
 
 ## Installation
 
-* Install [corral](https://github.com/contact-red/equestuia)
-* `corral add github.com/contact-red/equestuia.git --version 0.1.0`
+* Install [corral](https://github.com/contact-red/sensitive)
+* `corral add github.com/contact-red/sensitive.git --version 0.1.0`
 * `corral fetch` to fetch your dependencies
-* `use "equestuia"` to include this package
+* `use "sensitive"` to include this package
 * `corral run -- ponyc` to compile your application
 
 ## API Documentation
 
-[https://equestuia.contact.red/](https://equestuia.contact.red/)
+[https://sensitive.contact.red/](https://sensitive.contact.red/)
