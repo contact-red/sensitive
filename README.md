@@ -9,7 +9,7 @@ sensitive is 0.x software. It is small and simple, but the public API can still 
 ## Installation
 
 * Install [corral](https://github.com/ponylang/corral)
-* `corral add github.com/contact-red/sensitive.git --version 0.1.1`
+* `corral add github.com/contact-red/sensitive.git --version 0.2.0`
 * `corral fetch` to fetch your dependencies
 * `use "sensitive"` to include this package
 * `corral run -- ponyc` to compile your application
