@@ -2,3 +2,6 @@ build/
 _corral/
 _repos/
 docs/
+.env
+# Temporary directories the test suite creates in the working directory.
+/sensitive?*/

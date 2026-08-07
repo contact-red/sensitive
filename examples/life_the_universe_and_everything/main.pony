@@ -1,8 +1,8 @@
 use "../../sensitive"
+use "files"
 
 actor Main
   let life_the_universe_and_everything: Sensitive[U8]
-  let user: Sensitive[String]
 
   new create(env: Env) =>
     life_the_universe_and_everything = Sensitive[U8](42)
@@ -13,13 +13,30 @@ actor Main
       env.out.print("… yet internally, I know the score.")
     end
 
-    // In many environments, secrets are passed by environmental variables:
+    // Secrets arrive by environmental variable or by a .env file in the
+    // working directory. An environmental variable overrides the file.
+    let dotenv = FilePath(
+      FileAuth(env.root),
+      ".env",
+      recover val FileCaps .> set(FileRead) .> set(FileStat) end)
+
+    let secrets =
+      match ReadEnvSecrets(env.vars, dotenv)
+      | let s: EnvSecrets => s
+      | let e: DotEnvError =>
+        env.err.print(e.string())
+        env.exitcode(1)
+        return
+      end
+
     try
-      user = Sensitive[String].from_env(env.vars, "USER")?
-      env.out.print("I read the contents of $USER, and it's: " + user.string())
-      env.out.print("… but it does have " + user.expose().size().string()
-        + " characters")
+      let password = secrets("DB_PASSWORD")?
+      env.out.print("I read DB_PASSWORD, and it's: " + password.string())
+
+      if password.expose() == "hunter2" then
+        env.out.print("… yet exposing it deliberately gives the real thing.")
+      end
     else
-      user = Sensitive[String]("")
-      env.out.print("Apparently there is no $USER here")
+      env.out.print("DB_PASSWORD is not set."
+        + " Copy .env.example to .env to set it.")
     end

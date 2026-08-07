@@ -2,7 +2,7 @@
   "info": {
     "name": "sensitive",
     "version": "0.1.1",
-    "description": "Generic sensitive value wrapper with redacted string output"
+    "description": "Generic sensitive value wrapper with redacted string output, and secrets read from the environment and .env files"
   },
   "packages": [],
   "deps": []
